@@ -13,13 +13,19 @@ import org.springframework.web.bind.annotation.RequestHeader;
 public class GithubWebhookController {
 
     /**
-     * Handles incoming GitHub webhook events and processes pull request events specifically.
+     * Handles incoming GitHub webhook events and processes pull request events
+     * specifically.
+     * 
      * @example
-     * ResponseEntity<String> response = new GithubWebhookController().handleWebhook("pull_request", "{...}");
-     * System.out.println(response.getBody()); // "Webhook Received"
-     * @param {String} event - The type of GitHub event sent in the request header, e.g., "pull_request".
-     * @param {String} payload - The JSON payload sent in the body of the request containing event details.
-     * @return {ResponseEntity<String>} - A ResponseEntity indicating the webhook has been received successfully.
+     *          ResponseEntity<String> response = new
+     *          GithubWebhookController().handleWebhook("pull_request", "{...}");
+     *          System.out.println(response.getBody()); // "Webhook Received"
+     * @param {String} event - The type of GitHub event sent in the request header,
+     *                 e.g., "pull_request".
+     * @param {String} payload - The JSON payload sent in the body of the request
+     *                 containing event details.
+     * @return {ResponseEntity<String>} - A ResponseEntity indicating the webhook
+     *         has been received successfully.
      */
     @PostMapping("/webhook")
     public ResponseEntity<String> handleWehbook(@RequestHeader("X-Github-Event") String event,
@@ -36,7 +42,7 @@ public class GithubWebhookController {
             }
         }
 
-        return ResponseEntity.ok("Webhook Received");
+        return ResponseEntity.ok("Received Webhook");
     }
 
 }
